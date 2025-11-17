@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>\Home Bakery - Sales Performance</title>
+
+<style>
+/* BODY & BACKGROUND */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(145deg, #eef2f7, #d9e2ec);
+    overflow-x: hidden;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px; /* Reduced height */
+    background-color: #1a237e;
+    color: white;
+    gap: 5px;
+    position: relative;
+}
+
+.header svg {
+    height: 50px;
+    width: 50px;
+}
+
+.header h1 {
+    font-size: 1.8em;
+    margin: 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Gradient underline */
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b4a, #1a237e);
+    border-radius: 3px;
+}
+
+/* DASHBOARD CONTAINER */
+.dashboard-container {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Floating shapes */
+.dashboard-container::before,
+.dashboard-container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(26, 35, 126, 0.05);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.dashboard-container::before {
+    width: 250px;
+    height: 250px;
+    top: -60px;
+    left: -60px;
+    animation: float 15s infinite alternate ease-in-out;
+}
+
+.dashboard-container::after {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    right: -50px;
+    animation: float 20s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(20px); }
+}
+
+/* SECTION TITLE */
+.section-title {
+    text-align: center;
+    color: #1a237e;
+    font-weight: 700;
+    font-size: 2em;
+    margin-bottom: 5px;
+    margin-top: -5px;
+    position: relative;
+    overflow: hidden;
+    height: 2.3em;
+}
+
+/* Highlighted text color */
+.highlight {
+    color: #d4af37; /* Dark Yellow / Gold */
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Blue text for INVENTORY PERFORMANCE */
+.analysis-text {
+    color: #1a237e;
+    text-transform: uppercase;
+}
+
+/* Scrolling text animation */
+.scrolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollText 25s linear infinite;
+}
+
+/* Keyframes for continuous scroll */
+@keyframes scrollText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Pause scroll on hover */
+.section-title:hover .scrolling-text {
+    animation-play-state: paused;
+}
+
+/* Gradient underline */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 3px;
+    margin: 8px auto 0 auto;
+    background: linear-gradient(90deg, #ff6b4a, #1a237e);
+    border-radius: 3px;
+}
+
+/* IFRAME STYLING */
+.iframe-wrapper {
+    position: relative;
+    z-index: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.dashboard-container iframe {
+    width: 100%;
+    height: 750px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dashboard-container iframe:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    margin: 40px 0 20px 0;
+    color: #555;
+    font-size: 0.9em;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 2px;
+    margin: 0 auto 8px auto;
+    background: linear-gradient(90deg, #ff6b4a, #1a237e);
+    border-radius: 2px;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="48" fill="#ff6b4a"/>
+        <path d="M20 75 L50 25 L80 75 Z" fill="#1a237e"/>
+        <text x="50" y="60" text-anchor="middle" font-size="14" fill="white" font-family="Segoe UI">FAMA</text>
+    </svg>
+    <h1>Sales Performance Analysis</h1>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard-container">
+    <div class="iframe-wrapper">
+        <h2 class="section-title">
+            <span class="scrolling-text">
+                <span class="highlight">HOME BAKERY</span> – 
+                <span class="analysis-text">SALES PERFORMANCE</span>
+            </span>
+        </h2>
+        <iframe title="Da" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=7b359195-fe06-4c8d-9a92-fe3a3c8f024f&autoAuth=true&ctid=59201bac-affb-445d-9fc1-5968f12e7184" frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    &copy; 2025 Home Bakery. All Rights Reserved.
+</footer>
+
+</body>
+</html>
